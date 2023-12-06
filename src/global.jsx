@@ -8,7 +8,7 @@ import "./assets/scss/global.scss"
 export default function ({ url, title, children }) {
   return (
     <>
-      <Head htmlAttributes={{ lang: "en" }}>
+      <Head htmlAttributes={{ lang: "ru" }}>
         <title>{title}</title>
         <script type="module" src="/src/assets/main.js" />
       </Head>

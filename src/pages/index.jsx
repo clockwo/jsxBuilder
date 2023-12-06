@@ -22,8 +22,8 @@ export default function () {
           Laudantium numquam excepturi aspernatur nihil! <a href="/">Ссылка </a>
         </p>
 
-        <a href="/" class="link--arrow">
-          Ссылка <span class="arrow"></span>
+        <a href="/" className="link--arrow">
+          Ссылка <span className="arrow"></span>
         </a>
 
         <ul>
@@ -32,10 +32,10 @@ export default function () {
           <li>Третий пункт</li>
         </ul>
 
-        <ul class="line">
+        <ul className="line">
           <li>
             Первый пункт
-            <ul class="line">
+            <ul className="line">
               <li>Первый пункт</li>
               <li>Второй пункт</li>
               <li>Третий пункт</li>
@@ -62,9 +62,7 @@ export default function () {
           <input type="hidden" placeholder="Text" value="hidden" />
           <textarea placeholder="textarea"></textarea>
           <select name="name">
-            <option value="" selected>
-              1
-            </option>
+            <option value="">1</option>
             <option value="">2</option>
             <option value="">3</option>
           </select>
@@ -77,10 +75,10 @@ export default function () {
           <input type="reset" placeholder="Text" value="reset" disabled />
           <input type="button" placeholder="Text" value="button" disabled />
           <button>Кнопка</button>
-          <a href="/" class="btn">
+          <a href="/" className="btn">
             Фэйковая кнопка
           </a>
-          <button class="btn-border">Кнопка</button>
+          <button className="btn-border">Кнопка</button>
           <button disabled>Кнопка</button>
         </form>
       </div>
