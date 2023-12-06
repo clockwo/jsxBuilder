@@ -1,0 +1,35 @@
+@use "../../abstracts" as *;
+
+@mixin -color($clr) {
+  .clr-#{$clr} {
+    color: var(--clr-#{$clr}) !important;
+  }
+
+  .bg-#{$clr} {
+    background-color: var(--clr-#{$clr}) !important;
+  }
+}
+
+@include -color("main");
+@include -color("text");
+@include -color("light");
+@include -color("fields");
+@include -color("grey");
+@include -color("medium");
+@include -color("bg");
+@include -color("f");
+@include -color("ok");
+@include -color("stop");
+@include -color("blackout");
+@include -color("purple");
+
+.bg {
+  &-main,
+  &-text {
+    color: $clr-f;
+  }
+  body &-bg,
+  body &-f {
+    color: $clr;
+  }
+}

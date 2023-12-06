@@ -1,0 +1,38 @@
+@use "../abstracts" as *;
+
+.slider {
+  position: relative;
+
+  &--btn {
+    --size: 3rem;
+    max-width: var(--size);
+    width: var(--size);
+    height: var(--size);
+    padding: 0;
+    border: $ln;
+    border-width: $i2;
+    background-color: transparent;
+
+    &[data-slide] {
+      @include bg-contain("../svg/art/arrow.svg");
+      background-size: 1.5rem auto;
+    }
+  }
+
+  &--window {
+    overflow: hidden;
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+      user-select: none;
+    }
+  }
+
+  &--track {
+    position: relative;
+    display: flex;
+    gap: $i20;
+    transition: 1s transform;
+  }
+}

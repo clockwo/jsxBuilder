@@ -1,0 +1,169 @@
+@use "../../../assets/scss/abstracts" as *;
+
+.select {
+  position: relative;
+  cursor: pointer;
+
+  &:not(.active) {
+    .select {
+      &--child {
+        visibility: hidden;
+      }
+    }
+  }
+
+  &.active {
+    z-index: 9;
+
+    &::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: $clr-blkt;
+      z-index: -1;
+    }
+
+    .select {
+      &--name {
+        .arrow {
+          rotate: 180deg;
+        }
+      }
+    }
+  }
+
+  &.checked {
+    .select {
+      &--name {
+        background-color: $clr;
+        border-color: $clr;
+        color: $clr-f;
+
+        .name {
+          color: currentColor;
+        }
+      }
+    }
+  }
+
+  @include hover {
+    &:not(.checked) {
+      .select {
+        &--name {
+          border-color: $clr;
+
+          .name {
+            color: $clr;
+          }
+        }
+      }
+    }
+  }
+
+  .arrow {
+    --ava: 1.5rem;
+    background-image: url(../svg/art/arrow.svg);
+    rotate: 0deg;
+  }
+
+  &--name {
+    @include flex($justify: space-between, $gap: 0 $i20);
+    min-width: 9.375rem;
+    background-color: $clr-g;
+    border: $ln;
+    border-radius: $br;
+    // padding: $i4 $i20;
+    padding-inline: $i20;
+    transition: 0.1s background-color, 0.1s border-color;
+
+    .name {
+      @include flex($align: baseline, $justify: space-between, $gap: $i8);
+      @include font($font: $h5, $weight: 300, $line: 142.857%);
+      @include margin-bottom(0);
+      width: 100%;
+      color: $clr-mn;
+      transition: 0.1s color;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .arrow {
+      user-select: none;
+      pointer-events: none;
+    }
+  }
+
+  &--child {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: $clr-f;
+    border: $ln;
+    border-radius: $i20;
+    padding: $i20;
+
+    .triggers {
+      border-bottom: $ln;
+      padding-bottom: 0.25rem;
+      transition: 0.1s border-color;
+
+      &:not(:first-child) {
+        padding-top: 0.25rem;
+      }
+
+      @include hover {
+        border-color: $clr-mn;
+
+        .value {
+          color: $clr-mn;
+        }
+      }
+
+      input {
+        &:checked {
+          ~ {
+            .value {
+              color: $clr-mn;
+            }
+          }
+        }
+      }
+
+      .value {
+        @include flex($gap: $i8, $justify: space-between, $align: baseline);
+        width: 100%;
+
+        [class*="clr-"] {
+          color: currentColor !important;
+        }
+      }
+    }
+  }
+
+  &--width {
+    .select {
+      max-width: 16.8125rem;
+      width: 100%;
+    }
+  }
+
+  &--grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $i8 $i16;
+
+    @include max_967 {
+      grid-template-columns: 100%;
+    }
+
+    .input {
+      grid-column: 1/-1;
+      background-color: $clr;
+      @include margin-bottom($i8);
+    }
+  }
+}

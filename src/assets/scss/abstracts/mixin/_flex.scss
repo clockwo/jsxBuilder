@@ -1,0 +1,33 @@
+@mixin -gap($gap: null) {
+  @if ($gap != null) {
+    gap: $gap;
+  }
+}
+
+// display: flex только для вертикального выравнивая, с возможностью задать gap
+@mixin flex-align($gap: null, $align: center) {
+  display: flex;
+  align-items: $align;
+  @include -gap($gap);
+}
+
+// display: flex полная версия, с возможностью задать gap
+@mixin flex($gap: null, $align: center, $justify: center) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  @include -gap($gap);
+}
+
+@mixin wrap($gap: null) {
+  display: flex;
+  flex-wrap: wrap;
+  @include -gap($gap);
+}
+
+// display: flex полная версия, с возможностью задать gap
+@mixin flex-column($gap: null) {
+  flex-direction: column;
+  display: flex;
+  @include -gap($gap);
+}

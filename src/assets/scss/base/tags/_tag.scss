@@ -1,0 +1,86 @@
+@use "../../abstracts" as *;
+
+html {
+  font-size: $base;
+  scroll-behavior: smooth;
+}
+
+body,
+input,
+textarea,
+button,
+.btn {
+  @extend %normal;
+  font-family: "Inter", sans-serif;
+  font-size: $i16;
+  color: $clr;
+}
+
+body {
+  @extend %flex-column;
+  background: $clr-bg;
+  max-width: 100vw;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+main {
+  flex: 1;
+}
+
+button,
+a {
+  svg,
+  img {
+    @extend %fit-contain;
+    display: block;
+  }
+
+  svg {
+    @extend %svg-current;
+  }
+}
+
+img {
+  position: relative;
+
+  &:after {
+    content: "";
+    @extend %inset;
+    // @include bg-contain("../svg/art/no-img.svg");
+    background-color: $clr-bg;
+  }
+}
+
+svg,
+img,
+video,
+audio,
+iframe,
+form,
+a,
+button {
+  user-select: none;
+}
+
+/* Адаптив для больших экранов */
+
+@media (min-width: 1999px) {
+  html {
+    font-size: calc(16px + 0.2vw);
+  }
+}
+
+@media (min-width: 2067px) {
+  html {
+    font-size: calc(16px + 0.4vw);
+  }
+}
+
+@media (min-width: 3067px) {
+  html {
+    font-size: calc(16px + 0.6vw);
+  }
+}

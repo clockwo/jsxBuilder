@@ -1,0 +1,46 @@
+@use "../variable" as *;
+@use "position" as *;
+
+%container {
+  width: 100%;
+  padding-inline: $con;
+}
+
+%container-inline {
+  width: 100%;
+  padding-inline: $con;
+  margin-inline: auto;
+}
+
+%close {
+  &:after,
+  &:before {
+    content: "";
+    @extend %abs-center;
+    display: block;
+    rotate: 45deg;
+    border-radius: 0.25rem;
+    background-color: currentColor;
+  }
+
+  &::after {
+    width: var(--size);
+    height: 0.125rem;
+  }
+
+  &::before {
+    width: 0.125rem;
+    height: var(--size);
+  }
+}
+
+%no-active {
+  pointer-events: none;
+  user-select: none;
+}
+
+%no-active-op {
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+}

@@ -1,0 +1,23 @@
+@use "../../assets/scss/abstracts" as *;
+
+.header {
+  background-color: $clr-f;
+  padding-block: $i24;
+
+  .container {
+    @extend %flex-center;
+    position: relative;
+    justify-content: space-between;
+    gap: $i20;
+  }
+
+  .logo {
+    --mw: 15.875rem;
+  }
+
+  @media (min-width: 967px) {
+    .burger {
+      display: none;
+    }
+  }
+}

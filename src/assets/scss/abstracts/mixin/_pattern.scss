@@ -1,0 +1,8 @@
+@use "../extend/pattern";
+@use "width";
+
+@mixin btn-close($size: 1.25rem, $p: 0.25rem) {
+  @include width.ava(#{$size});
+  --size: calc(var(--ava) - $p);
+  @extend %close;
+}

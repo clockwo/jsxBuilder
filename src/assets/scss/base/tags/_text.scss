@@ -1,0 +1,159 @@
+@use "../../abstracts" as *;
+
+%h-normal {
+  line-height: 120%;
+  margin: 0;
+}
+
+h1,
+.h1 {
+  @extend %h-normal;
+  @include margin-bottom(0.5em);
+  font-weight: 700;
+  font-size: $h1;
+}
+
+h2,
+.h2 {
+  @extend %h-normal;
+  @include margin-bottom(1em);
+  font-weight: 700;
+  font-size: $h2;
+}
+
+h3,
+.h3 {
+  @extend %h-normal;
+  @include margin-bottom(0.8em);
+  font-weight: 700;
+  font-size: $h3;
+}
+
+h4,
+.h4 {
+  @extend %h-normal;
+  font-weight: 600;
+  font-size: $h4;
+}
+
+h5,
+.h5 {
+  @extend %h-normal;
+  font-weight: 600;
+  font-size: $h5;
+}
+
+small,
+.chips {
+  @extend %normal;
+  display: block;
+  font-size: $f12;
+  line-height: 150%;
+  letter-spacing: 0.05em;
+}
+
+p {
+  @include margin-bottom($i8);
+
+  &:empty {
+    display: none;
+  }
+}
+
+p,
+span {
+  a {
+    @include hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+ul,
+ol {
+  @include margin-block();
+
+  margin: 0;
+  padding-inline-start: $i16;
+
+  ul,
+  ol {
+    margin: $i8 0 $i16;
+  }
+}
+
+time {
+  color: $clr-g;
+  font-size: $f14;
+  line-height: 150%;
+}
+
+address {
+  font-style: normal;
+}
+
+.tall {
+  font-weight: 600;
+  line-height: 150%;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.subtitle {
+  @extend %normal;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.regular {
+  @extend %normal;
+  font-size: $i16;
+}
+
+.text {
+  &-left {
+    text-align: left;
+  }
+  &-center {
+    text-align: center;
+  }
+  &-right {
+    text-align: right;
+  }
+  &-start {
+    text-align: start;
+  }
+  &-end {
+    text-align: end;
+  }
+}
+
+.line {
+  list-style: none;
+  padding-inline-start: 0;
+
+  li {
+    position: relative;
+    letter-spacing: 0.05em;
+
+    @include margin-bottom($i16);
+  }
+
+  > li {
+    padding-inline-start: $i24;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0.625rem;
+      left: 0;
+      display: block;
+      width: $i16;
+      height: $i2;
+      background-color: $clr-mn;
+    }
+  }
+}

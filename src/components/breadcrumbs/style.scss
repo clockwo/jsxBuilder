@@ -1,0 +1,36 @@
+@use "../../assets/scss/abstracts/" as *;
+
+.breadcrumbs {
+  margin: $i16 0 $i92;
+
+  .bc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+
+    li {
+      font-size: $f14;
+      line-height: 150%;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      min-width: max-content;
+      color: $clr-g;
+
+      &:not(:last-child) {
+        &:after {
+          content: "";
+          width: $i1;
+          height: 100%;
+          background-color: currentColor;
+        }
+      }
+    }
+  }
+
+  .bc-list,
+  .bc-list li {
+    display: flex;
+    gap: $i8;
+  }
+}

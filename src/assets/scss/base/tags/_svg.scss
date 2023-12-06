@@ -1,0 +1,11 @@
+@use "../../abstracts" as *;
+
+svg {
+  @include ava();
+}
+
+.svg {
+  &--current {
+    @extend %svg-current;
+  }
+}

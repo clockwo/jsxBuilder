@@ -1,0 +1,94 @@
+@use "../../../assets/scss/abstracts" as *;
+
+.triggers {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  height: fit-content;
+  gap: $i10;
+
+  @include hover {
+    .trigger {
+      border-color: $clr-hvr;
+    }
+  }
+
+  .trigger {
+    @include ava(1.5rem);
+    position: relative;
+    background-color: transparent;
+    border: $ln;
+    border-color: currentColor;
+    overflow: hidden;
+    transition: 0.1s;
+    cursor: pointer;
+
+    &:after {
+      content: "";
+      @extend %abs-center;
+      display: block;
+      width: 0;
+      height: 0;
+      transition: 0.1s;
+      background-color: $clr-hvr;
+    }
+  }
+
+  input {
+    position: absolute !important;
+    top: $i4;
+    left: $i4;
+    opacity: 0;
+    z-index: -1;
+
+    &[type="radio"] {
+      ~ {
+        .trigger {
+          border-radius: $i24;
+
+          &:after {
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+
+    &[type="checkbox"] {
+      ~ {
+        .trigger {
+          border-radius: $i4;
+
+          &:after {
+            border-radius: $i2;
+          }
+        }
+      }
+    }
+
+    &:checked {
+      ~ {
+        .trigger {
+          border-color: $clr-hvr;
+
+          &:after {
+            width: 50%;
+            height: 50%;
+            background-color: $clr-hvr;
+          }
+        }
+
+        .trigger--point {
+          &:after {
+            left: calc(100% - 1.625rem);
+          }
+        }
+
+        .trigger--rating {
+          background: $clr-mn;
+          color: $clr-f;
+          border-color: $clr-hvr;
+        }
+      }
+    }
+  }
+}

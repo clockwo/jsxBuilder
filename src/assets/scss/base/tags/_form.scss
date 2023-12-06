@@ -1,0 +1,65 @@
+@use "../../abstracts" as *;
+
+input,
+textarea,
+select {
+  width: 100%;
+  color: $clr;
+  background-color: $clr-f;
+  border: $ln-clr;
+  border-radius: $br;
+  padding: $i8 $i10;
+  transition: 0.1s;
+
+  &:focus-visible,
+  &:focus {
+    outline: none;
+    border-color: $clr-g;
+  }
+
+  @media (hover: hover) {
+    &:not(:focus, :focus-visible, :disabled):hover {
+      border-color: $clr-g;
+    }
+  }
+}
+
+select {
+  appearance: none;
+  padding-right: 2.25rem;
+  background: {
+    image: url("../svg/art/arrow.svg");
+    repeat: no-repeat;
+    size: $i16;
+    position: {
+      y: center;
+      x: calc(100% - $i16);
+    }
+  }
+}
+
+option {
+  background-color: $clr-bg;
+
+  &:checked {
+    background-color: $clr-hvr;
+  }
+}
+
+textarea {
+  height: 7rem;
+  border-radius: $br;
+  resize: none;
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+
+  legend {
+    font-size: $f20;
+    line-height: 150%;
+    @include margin-bottom($i16);
+  }
+}

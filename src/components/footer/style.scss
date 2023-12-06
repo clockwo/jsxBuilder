@@ -1,0 +1,10 @@
+@use "../../assets/scss/abstracts" as *;
+
+.footer {
+  background-color: $clr;
+  padding-block: $i64;
+
+  .logo {
+    --mw: 15.875rem;
+  }
+}

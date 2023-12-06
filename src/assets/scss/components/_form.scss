@@ -1,0 +1,7 @@
+@use "../abstracts" as *;
+
+.form {
+  @extend %flex-column;
+  position: relative;
+  gap: $i8;
+}

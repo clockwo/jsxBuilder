@@ -1,0 +1,39 @@
+@use "../abstracts" as *;
+
+.error {
+  max-width: 42.75rem;
+  width: 100%;
+  padding: var(--80) 0.9375rem;
+  margin-inline: auto;
+
+  .logo {
+    --mw: 37.8125rem;
+    margin-bottom: var(--56);
+  }
+
+  .title {
+    line-height: 113.636%;
+    text-transform: uppercase;
+  }
+
+  .text {
+    color: #3e3e3e;
+
+    &:not(:last-child) {
+      margin-bottom: var(--32);
+    }
+  }
+
+  .btns {
+    gap: 0.5rem 1rem;
+
+    [class*="btn"] {
+      min-width: 9.5rem;
+
+      @media (max-width: 23rem) {
+        min-width: 100%;
+        width: 100%;
+      }
+    }
+  }
+}

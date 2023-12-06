@@ -1,0 +1,75 @@
+@use "../extend/background" as *;
+
+// Эта функция позволяет задавать позицию элемента без указания его размеров
+@mixin bg-position($x: center, $y: center) {
+  background-repeat: no-repeat;
+
+  @if ($x == $y) {
+    background-position: $x;
+  } @else {
+    background-position: {
+      x: $x;
+      y: $y;
+    }
+  }
+}
+
+// Эта функция позволяет задавать позицию элемента с указания его размеров
+@mixin bg-size($size: contain, $x: center, $y: center) {
+  @include bg-position($x, $y);
+  background-size: $size;
+}
+
+// Эта функция позволяет задавать позицию элемента с указания его размеров в единицах измерения
+@mixin bg-size-unit($width: contain, $height: contain, $x: center, $y: center) {
+  @include bg-position($x, $y);
+
+  @if (unit($width) != "" and unit($height) == "") {
+    background-size: $width;
+  } @else {
+    background-size: $width $height;
+  }
+}
+
+// Эта функция позволяет задавать фон с размером cover
+@mixin bg-cover($src) {
+  @extend %bg-cover;
+  background-image: url($src);
+}
+
+// Эта функция позволяет задавать фон с размером contain
+@mixin bg-contain($src) {
+  @extend %bg-contain;
+  background-image: url($src);
+}
+
+// Эта функция позволяет задавать фон с стандартным размером
+@mixin bg-image-size($src, $size: contain, $x: center, $y: center) {
+  @include bg-size($size, $x, $y);
+  background-image: url($src);
+}
+
+// Эта функция позволяет задавать фон с указания его размеров в единицах измерения
+@mixin bg-image-size-unit(
+  $src,
+  $width: contain,
+  $height: contain,
+  $x: center,
+  $y: center
+) {
+  @include bg-size($width, $height, $x, $y);
+  background-image: url($src);
+}
+
+// Эта функция позволяет задавать фон с использованием спрайтов
+@mixin sprite($art, $k, $size: var(--h)) {
+  background: {
+    image: url($art);
+    size: calc($size * $k);
+    repeat: no-repeat;
+    position: {
+      x: calc(-1 * var(--x) * $size);
+      y: calc(-1 * var(--y) * var(--h));
+    }
+  }
+}

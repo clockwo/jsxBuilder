@@ -1,0 +1,22 @@
+%abs-50 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+%abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+%inset {
+  position: absolute;
+  inset: 0;
+}
+
+%z1 {
+  position: relative;
+  z-index: 1;
+}

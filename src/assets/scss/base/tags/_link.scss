@@ -1,0 +1,33 @@
+@use "../../abstracts" as *;
+
+a {
+  color: $clr-mn;
+  text-decoration: none;
+  transition: 0.1s;
+  cursor: pointer;
+
+  @include hover {
+    color: $clr-hvr;
+  }
+
+  &[download] {
+    @extend %flex-center;
+    gap: $i10;
+  }
+}
+
+.link {
+  &--arrow {
+    @extend %flex-center;
+    color: $clr-g;
+    gap: $i16;
+    user-select: none;
+    cursor: pointer;
+
+    @include hover {
+      color: $clr-hvr;
+    }
+
+    @extend %svg-current;
+  }
+}

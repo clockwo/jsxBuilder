@@ -1,0 +1,14 @@
+@use "../variable" as *;
+
+@mixin container-inline($mw: 70rem) {
+  max-width: $mw;
+  width: 100%;
+  padding-inline: $con;
+  margin-inline: auto;
+}
+
+@mixin container($mw: 70rem) {
+  max-width: $mw;
+  width: 100%;
+  padding-inline: $con;
+}

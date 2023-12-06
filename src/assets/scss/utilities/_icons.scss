@@ -1,0 +1,35 @@
+@use "../abstracts" as *;
+
+%-square {
+  @include ava();
+  @extend %bg-contain;
+  display: block;
+}
+
+@mixin -bg-image($name, $art) {
+  .#{$name} {
+    @extend %-square;
+    background-image: url(../svg/#{$art}.svg);
+  }
+
+  [data-before="#{$name}"] {
+    &:before {
+      @extend %-square;
+      content: "";
+      background-image: url(../svg/#{$art}.svg);
+    }
+  }
+}
+
+.icon {
+  &--element {
+    display: flex;
+    width: fit-content;
+    gap: $i10;
+    color: $clr;
+
+    @include margin-bottom($i8);
+  }
+}
+
+//   @include -bg-image($name: "pixel", $art: "art/arrows/combo/pixel.svg");

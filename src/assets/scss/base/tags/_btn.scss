@@ -1,0 +1,124 @@
+@use "../../abstracts" as *;
+
+%btn {
+  @extend %flex-center;
+  font-weight: 600;
+  font-size: $f18;
+  text-align: center;
+  width: fit-content;
+  border: $ln;
+  border-radius: $br;
+  gap: $i10;
+  padding: $i10 $i32;
+  transition: 0.1s all;
+  cursor: pointer;
+
+  @include max_467 {
+    width: 100%;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+@mixin btn(
+  $clr: $clr-f,
+  $bg: $clr-mn,
+  $br-clr: $bg,
+  $clr-hvr: $clr-f,
+  $bg-hvr: $clr-hvr,
+  $br-hvr: $bg-hvr
+) {
+  @extend %btn;
+  color: $clr;
+  background-color: $bg;
+  border-color: $br-clr;
+
+  @include hover {
+    color: $clr-hvr;
+    background-color: $bg-hvr;
+    border-color: $br-hvr;
+  }
+}
+
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  @include btn();
+}
+
+button {
+  @include btn();
+}
+
+.btns {
+  @extend %flex-center;
+  flex-wrap: wrap;
+  gap: $i24;
+}
+
+.btn {
+  @include btn();
+
+  &--close {
+    @include btn-close(2rem);
+    position: absolute;
+    top: $i24;
+    right: $i24;
+    background-color: transparent !important;
+    color: $clr-f;
+    border: none;
+    padding: 0;
+    border-radius: 0.25rem;
+
+    @include hover {
+      color: $clr-mn;
+    }
+  }
+}
+
+.burger {
+  @include ava(2rem);
+  @extend %flex-column;
+  position: relative;
+  justify-content: space-evenly;
+  background-color: $clr-mn;
+  color: $clr-f;
+  padding: $i4;
+  gap: 0;
+
+  .line {
+    position: relative;
+    width: 1.5rem;
+    height: 0.125rem;
+    background: currentColor;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  &.close {
+    @include hover {
+      color: $clr-stp;
+    }
+
+    .line {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+
+      &:nth-child(3) {
+        rotate: 45deg;
+      }
+
+      &:nth-child(2) {
+        rotate: -45deg;
+      }
+
+      &:nth-child(1) {
+        display: none;
+      }
+    }
+  }
+}

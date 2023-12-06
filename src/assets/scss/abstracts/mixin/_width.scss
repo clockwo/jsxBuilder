@@ -1,0 +1,24 @@
+// Устанавливаем максимальную ширинну
+@mixin max-width($max: 100%) {
+  max-width: $max;
+  width: 100%;
+}
+
+// Устанавливаем размер для авы (одинаковый)
+@mixin ava($ava: 1.5rem) {
+  --ava: #{$ava};
+  width: var(--ava);
+  height: var(--ava);
+
+  $size: $ava + 1.875rem;
+
+  @media (min-width: $size) {
+    min-width: var(--ava);
+  }
+}
+
+// Устанавливаем размер для авы (одинаковый) с закруглением
+@mixin ava-round($ava: 1.5rem) {
+  @include ava($ava);
+  border-radius: var(--ava);
+}

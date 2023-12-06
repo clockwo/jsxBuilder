@@ -1,0 +1,22 @@
+@mixin margin-bottom($n: 1rem) {
+  &:not(:last-child) {
+    margin-bottom: $n;
+  }
+}
+
+@mixin margin-top($n: 1rem) {
+  &:not(:first-child) {
+    margin-top: $n;
+  }
+}
+
+@mixin margin-block($f: 1rem, $l: 1rem) {
+  @include margin-top($f);
+  @include margin-bottom($l);
+}
+
+@mixin font($font: 1rem, $weight: 400, $line: 150%) {
+  font-size: $font;
+  font-weight: $weight;
+  line-height: $line;
+}

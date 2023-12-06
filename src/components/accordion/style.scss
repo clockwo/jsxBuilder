@@ -1,0 +1,80 @@
+@use "../../assets/scss/abstracts" as *;
+
+.arrow {
+  position: relative;
+  background-color: transparent;
+  @include ava(1.125rem);
+  @include bg-contain("../svg/art/arrow.svg");
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  rotate: 180deg;
+  transition: initial;
+
+  @include hover {
+    background-color: transparent;
+  }
+}
+
+.accordion {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  border-bottom: $ln-drk;
+  padding-block: $i12;
+
+  &.active {
+    z-index: 1;
+
+    > {
+      .accordion {
+        &--name {
+          color: $clr-mn;
+
+          .arrow {
+            rotate: 0deg;
+          }
+        }
+
+        &--child {
+          grid-template-rows: 1fr;
+        }
+      }
+
+      .active-hide {
+        display: none;
+      }
+    }
+  }
+
+  &--name {
+    @include flex($justify: space-between, $gap: $i8);
+    text-align: start;
+    font-weight: 400;
+    line-height: 144.444%;
+    width: 100%;
+    background-color: transparent;
+    color: $clr;
+    cursor: pointer;
+
+    @include hover {
+      color: $clr-hvr;
+    }
+
+    .name {
+      color: $clr-f;
+      @include margin-bottom(0);
+    }
+  }
+
+  &--child {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: 0.5s grid-template-rows cubic-bezier(0.39, 0.58, 0.57, 1);
+
+    .contant {
+      min-height: 0;
+    }
+  }
+}

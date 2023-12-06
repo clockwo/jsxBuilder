@@ -1,0 +1,10 @@
+@use "../abstracts" as *;
+
+.section {
+  background-color: $clr-f;
+  padding-block: $i64;
+
+  .container {
+    @include margin-bottom($i64);
+  }
+}

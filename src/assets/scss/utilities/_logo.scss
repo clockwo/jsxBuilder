@@ -1,0 +1,21 @@
+@use "../abstracts" as *;
+
+.logo {
+  --mw: 8rem;
+  display: block;
+  max-width: var(--mw);
+  width: 100%;
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+a.logo {
+  transform: 0.3s scale;
+
+  @include hover {
+    scale: 1.1;
+  }
+}

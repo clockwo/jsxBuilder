@@ -1,0 +1,75 @@
+@use "../../abstracts" as *;
+
+@mixin indent($n) {
+  .p-#{$n} {
+    padding-block: var(--#{$n}) !important;
+  }
+  .pt-#{$n} {
+    padding-block-start: var(--#{$n}) !important;
+  }
+  .pb-#{$n} {
+    padding-block-end: var(--#{$n}) !important;
+  }
+  .m-#{$n} {
+    margin-block: var(--#{$n}) !important;
+  }
+  .mt-#{$n} {
+    margin-block-start: var(--#{$n}) !important;
+  }
+  .mb-#{$n} {
+    margin-block-end: var(--#{$n}) !important;
+  }
+}
+
+@mixin indent-fix($name, $n) {
+  .p-#{$name} {
+    padding-block: #{$n} !important;
+  }
+  .pt-#{$name} {
+    padding-block-start: #{$n} !important;
+  }
+  .pb-#{$name} {
+    padding-block-end: #{$n} !important;
+  }
+  .m-#{$name} {
+    margin-block: #{$n} !important;
+  }
+  .mt-#{$name} {
+    margin-block-start: #{$n} !important;
+  }
+  .mb-#{$name} {
+    margin-block-end: #{$n} !important;
+  }
+}
+
+@include indent("20");
+@include indent("24");
+@include indent("28");
+@include indent("32");
+@include indent("36");
+@include indent("40");
+@include indent("44");
+@include indent("48");
+@include indent("52");
+@include indent("56");
+@include indent("60");
+@include indent("64");
+@include indent("68");
+@include indent("72");
+@include indent("76");
+@include indent("80");
+@include indent("84");
+@include indent("88");
+@include indent("92");
+@include indent("96");
+@include indent("100");
+@include indent("104");
+@include indent("108");
+@include indent("112");
+@include indent("116");
+@include indent("120");
+@include indent("124");
+@include indent("128");
+
+@include indent-fix("0", 0rem);
+@include indent-fix("16", 1rem);
